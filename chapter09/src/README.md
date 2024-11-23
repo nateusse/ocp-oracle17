@@ -43,4 +43,26 @@ Bye all elements.
     - ` public boolean removeIf(Predicate <? super E> filter)`
     - Ej: `list.removeIf(s -> s.startWith("A"));`
     - Ej: `set.removeIf (String:: is Empty);`
-- **for each**:
+
+### Iterating collections
+1. **for each**: 
+ Iterate Collection, no loop, using method reference or lambdas `public void forEach(consumer<? super T> action)`
+
+- Ej method reference: ` cats.forEach(Sytem.out:print)`
+- Ej lamda: ` cats.forEach(c -> System.out.print(c));`
+
+2. **loop**: 
+***enhanced for loop***: ` for (String element : cats)
+System.out.println(element);`
+
+3. **Iterator**
+
+`Iterator <String> iter = cats.iterator();`
+    `while (iter.hasNext()){
+        String string = iter.ext();
+        System.out.print(String);
+    }
+`
+- hasNext(): Check if there is a next value
+- next(): moves Iterator to next element
+
