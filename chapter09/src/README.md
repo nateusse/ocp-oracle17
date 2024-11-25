@@ -60,18 +60,64 @@ System.out.println(element);`
 
 ## LIST
 Yes duplicates, yes order, int index to retrieve and add. No static like arrays
-- **Factory methods to create list**: Create a list with asList, of, CopyOf
-    -  | Method                  | Description                                     | Add | Replace | Delete |
+
+- **LIST METHODS** :
+
+ | MethodDescription                     | Description                                              |
+    |---------------------------------------|----------------------------------------------------------|
+    | public boolean add(E element)         | Adds element to end (available on all Collection APIs)   |
+     | public void add(int index, E element) | Adds element at index and moves the rest toward the end. |
+      | public E get(int index)               | Returns element at index. |                               |
+      |public E remove(int index)| Removes element at index and moves the rest toward the front.|
+   | public default void replaceAll(UnaryOperator<E> op) | Replaces each element in list with result of operator.|
+| public E set(int index, E e) | Replaces element at index and returns original. Throws IndexOutOfBoundsException if index is invalid.|
+| public default void sort(Comparator<? super E> c)| Sorts list. We cover this later in the chapter in the “Sorting Data” section |
+
+
+- **LIST CLASSES** :
+  - **ArrayList** :
+  Resizable array, use this by default, best when I need to read often, 'cause looking in constant time, adding or removing is O(n).
+  - **LinkedList** :
+  For Queue and Deque, add, remove, access beginning and end constant time, search arbitrary index is linear time
+
+**Factory methods to create list**: Create a list with asList, of, CopyOf
+- | Method                  | Description                                     | Add | Replace | Delete | 
        |-------------------------|-------------------------------------------------|-----|---------|--------|
        | Arrays.asList(varargs)  | Fixed size list backed to array                 | NO  |  YES    | NO  |
        | List.of (varargs)       | Immutable list                                  | NO  | NO    | NO   |
        | List.CopyOf(collection) | Immutable list, copy original collection values | NO  | NO     | NO |
- 
-- 
-### ArrayList
-Resizable array, use this by default, best when I need to read often, 'cause looking in constant time, adding or removing is O(n).
-###  LinkedList
-For Queue and Deque, add, remove, access beginning and end constant time, search arbitrary index is linear time
+
+**Converting List to Array**:
+`list.toArray()`
+` list.toArray(new String[0] \\type`
+
+## SET
+No duplicates, no specific order
+- **SET CLASSES** :
+  - **HashSet** : Key are a hash, values are Objects. 
+    - Uses hashCode() method
+    - Adding, search is O(1)
+    - No order elements
+  - **TreeSet** : Order, sorted
+    - Adding, searching takes time
+
+![HashSet and TreeSet]( /images/ch9/hashset_hashtree.png)
+
+
+- **SET METHODS** :
+
+| MethodDescription             | Description                                                  |
+    |-------------------------------|--------------------------------------------------------------|
+| public boolean add(E element) | True unless element already in the set                       |
+| for.Each                      | Print arbitrary order for hashSet, natural order for TreeSet |  
+ | equals()                     | Uses hashCode() or Comparable for sorted                     |
+
+
+**Factory methods to create set**: Create set with of, CopyOf
+- | Method                 |                                   
+  |------------------------|
+  | Set.of (varargs)       | 
+  | Set.CopyOf(collection) |
 
 
 ## Generics
